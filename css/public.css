@@ -1,0 +1,12 @@
+*{
+	margin: 0;/*body 8px*/
+	padding: 0;
+	text-decoration: none;
+	font-style: normal;
+	list-style: none;
+	border-top: 0;
+	transition: all 0.1s;
+}
+input{
+	outline: none;
+}

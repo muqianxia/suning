@@ -2930,10 +2930,10 @@ body,a{
 	display:none;
 	position: absolute;
 	top: 0;
-	right:35px;
-	width: 0;
+	right: 0;
+	z-index: -1;
+	width: 47px;
 	height: 30px;
-	transition: width 0.3s linear;
 	overflow: hidden;
 	font-size: 14px;
 	color: #383838;
@@ -2942,7 +2942,7 @@ body,a{
 	text-align: center;
 	letter-spacing: 1px;
 	cursor: pointer;
-	/*transition: all 1s;*/
+
 }
 .rightdh_wenzi1{
 	width:73px;
@@ -2963,8 +2963,9 @@ body,a{
 .rightdh_code{
 	width:134px;
 	height: 134px;
-	left:-134px;
+	left:134px;
 	top:-35px;
+	z-index:-1;
 }
 .rightdh_code img{
 	width:100%;

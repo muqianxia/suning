@@ -355,33 +355,58 @@
 	});
 	//console.log(labels,menus);
 }
-// banner右部分头条效果
+//banner右部分头条效果
+{
+	let ttoT=document.querySelector(".toutiao ul");
+	let T=document.querySelector(".toutiao");
+	console.log(ttoT,T);
+	let n=0;
+	function toT() {
+	    ttoT.style.transition="all 2s";
+	    n++;
+	    if(n===3){
+	        n=0;
+	    }
+	    ttoT.style.top=-n*108+"px";
+	}
+	let st=setInterval(toT,2000);
+	T.onmouseover=function () {
+	    clearInterval(st);
+	};
+	T.onmouseout=function () {
+	    st=setInterval(toT,2000);
+	};
+	ttoT.addEventListener("transitionend",function () {
+	    if(n===3){
+	        ttoT.style.transition="none";
+	        ttoT.style.top="0";
+	        n=0;
+	    }
+	});
+}
 // {
-// 	let ttoT=document.querySelector(".toutiao ul");
-// 	let T=document.querySelector(".toutiao");
-// 	let n=0;
-// 	function toT() {
-// 	    ttoT.style.transition="all 2s";
-// 	    n++;
-// 	    if(n===3){
-// 	        n=0;
-// 	    }
-// 	    ttoT.style.top=-n*108+"px";
-// 	}
-// 	let st=setInterval(toT,2000);
-// 	T.onmouseover=function () {
-// 	    clearInterval(st);
-// 	};
-// 	T.onmouseout=function () {
-// 	    st=setInterval(toT,2000);
-// 	};
-// 	ttoT.addEventListener("transitionend",function () {
-// 	    if(n===3){
-// 	        ttoT.style.transition="none";
-// 	        ttoT.style.top="0";
-// 	        n=0;
-// 	    }
-// 	});
+//     let mis=document.querySelector(".banner-middles");
+//     // console.log(mis);
+//     let mis1=document.querySelectorAll(".banner-middle-right-middle");
+//     setInterval(updown,3000);
+//     var y=0;
+//     function updown(){
+//         y++;
+//         if(y>2){
+//             mis.style.transition="";
+//             y=0;
+//
+//             return;
+//         }
+//         mis.style.transition="all 1s";
+//         mis.style.marginTop=-100*y+"px";
+//     }
+//     mis.addEventListener("transitionend",function(){
+//         if(y==2){
+//             mis.style.transition="";
+//             mis.style.marginTop=0;
+//         }
+//     })
 // }
 //乐拼购效果
 {
@@ -422,13 +447,13 @@
 }
 //右边侧导航
 {
-	let icon=document.querySelectorAll(".rightdh_message");
-	let wenzi=document.querySelectorAll(".rightdh_wenzi");
-	icon.onmouseenter(function () {
-        wenzi.style.width=47+"px";
+	let icon=$(".rightdh_message");
+	let wenzi=$(".rightdh_wenzi");
+    icon.mouseenter(function () {
+        $(this).find(wenzi).show().animate({left:"47"},500);
     });
-    icon.onmouseleave(function () {
-        wenzi.style.width=0;
+    icon.mouseleave(function () {
+        $(this).find(wenzi).hide().animate({left:"-47"},500);
     });
 }
 //头部
